@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-import config from '../config';
+import config from '../config/config';
 import Card from '../models/Card';
 import ErrorInterface from '../models/ErrorInterface';
 
