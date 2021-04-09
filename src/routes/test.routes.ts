@@ -1,21 +1,17 @@
-import path from 'path';
 import { Router } from 'express';
 import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet';
-import { promisify } from 'util';
 
-import config from '../config/config';
+import accountService from '../config/accountService';
 
-const arquivo = require(path.resolve(__dirname, '..', 'config', 'arquivo.json'));
-const credenciais = require(path.resolve(__dirname, '..', 'config', config.googleAccountService));
 const testRouter = Router();
 
 testRouter.get('/', async (request, response) => {
 
-  const doc = new GoogleSpreadsheet(arquivo.id);
+  const doc = new GoogleSpreadsheet("1ffd2V0hvflJg_S8vtyloFndIh5b_3yLXdHLe4QHWjlI");
 
   await doc.useServiceAccountAuth({
-    client_email: credenciais.client_email,
-    private_key: credenciais.private_key.replace(/\\n/g, '\n')
+    client_email: accountService.client_email,
+    private_key: accountService.private_key.replace(/\\n/g, '\n')
   });
   await doc.loadInfo();
 
