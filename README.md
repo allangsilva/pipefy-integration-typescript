@@ -1,5 +1,7 @@
 # pipefy-integration-typescript
-A pipefy API integration for collect cards using typescript
+A Pipefy API integration using typescript
+
+API Reference https://api-docs.pipefy.com/reference/objects/Card/
 
 # Environments
 `node -v` - v12.x
